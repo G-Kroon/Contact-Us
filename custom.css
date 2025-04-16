@@ -1,6 +1,7 @@
 /* Custom styles for contact form */
 
 .copyright {
+    text-align: right;
     float: right;
 }
 
