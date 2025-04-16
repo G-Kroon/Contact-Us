@@ -1,5 +1,9 @@
 /* Custom styles for contact form */
 
+.copyright {
+    float: right;
+}
+
 /* Form transitions and animations */
 .form-control, .form-select {
     transition: all 0.3s ease-in-out;
