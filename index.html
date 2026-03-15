@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GKroon — Contact</title>
+    <link rel="icon" href="gk1.png" type="image/png">
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+
+    <!-- Animated background grid -->
+    <div class="bg-grid"></div>
+    <div class="scan-line"></div>
+
+    <div class="container py-5">
+
+        <!-- Header -->
+        <div class="text-center mb-5 header-section">
+            <div class="logo-wrap mb-3">
+                <img src="gk.png" alt="GKroon Logo" class="brand-logo">
+            </div>
+            <h1 class="brand-title">GK<span class="accent">ROON</span></h1>
+            <p class="brand-sub">// ESTABLISH A CONNECTION</p>
+            <div class="header-line"></div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+
+                <!-- Status Alerts -->
+                <div class="tech-alert tech-alert-success d-none" id="successAlert">
+                    <i class="fas fa-check-circle me-2"></i>
+                    <strong>TRANSMISSION SUCCESSFUL</strong> — Your message has been received. We'll respond shortly.
+                    <button class="alert-close-btn" onclick="this.parentElement.classList.add('d-none')">&times;</button>
+                </div>
+                <div class="tech-alert tech-alert-error d-none" id="errorAlert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>TRANSMISSION FAILED</strong> — <span id="errorMessage">Please try again.</span>
+                    <button class="alert-close-btn" onclick="this.parentElement.classList.add('d-none')">&times;</button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="progress-wrap mb-4">
+                    <div class="progress-label">
+                        <span class="mono">FORM COMPLETION</span>
+                        <span class="mono" id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+
+                <!-- Main Card -->
+                <div class="tech-card">
+                    <div class="tech-card-header">
+                        <span class="card-header-icon"><i class="fas fa-satellite-dish"></i></span>
+                        <span>CONTACT INTERFACE</span>
+                        <span class="status-dot pulse"></span>
+                    </div>
+
+                    <div class="tech-card-body">
+                        <form id="contactForm" novalidate autocomplete="off">
+
+                            <!-- Row: Name & Email -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <div class="field-group" id="group-name">
+                                        <label class="field-label" for="name">
+                                            <i class="fas fa-user-astronaut field-icon"></i>
+                                            NAME &amp; SURNAME <span class="required-star">*</span>
+                                        </label>
+                                        <input type="text" class="tech-input" id="name" name="name"
+                                               placeholder="e.g. Jane Smith" autocomplete="off">
+                                        <div class="field-feedback" id="feedback-name"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="field-group" id="group-email">
+                                        <label class="field-label" for="email">
+                                            <i class="fas fa-at field-icon"></i>
+                                            EMAIL ADDRESS <span class="required-star">*</span>
+                                        </label>
+                                        <input type="email" class="tech-input" id="email" name="email"
+                                               placeholder="e.g. you@domain.com" autocomplete="off">
+                                        <div class="field-feedback" id="feedback-email"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row: Service & Enquiry Type -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <div class="field-group" id="group-service">
+                                        <label class="field-label" for="service">
+                                            <i class="fas fa-microchip field-icon"></i>
+                                            SERVICE SELECTED <span class="required-star">*</span>
+                                        </label>
+                                        <select class="tech-select" id="service" name="service">
+                                            <option value="">— Select service —</option>
+                                            <option value="CIPC Services">CIPC Services</option>
+                                            <option value="Email & Web Hosting">Email & Web Hosting</option>
+                                            <option value="Microsoft Office 365 Packages"">Microsoft Office 365 Package</option>
+                                            <option value="Smartphone Repairs">Smartphone Repairs</option>
+                                            <option value="Web Design & Development">Web Design & Development</option>
+                                            <!--<option value="AI & Automation">AI &amp; Automation</option>
+                                            <option value="IT Consulting">IT Consulting</option>
+                                            <option value="Other">Other</option>-->
+                                        </select>
+                                        <div class="field-feedback" id="feedback-service"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="field-group" id="group-enquiry">
+                                        <label class="field-label" for="enquiry">
+                                            <i class="fas fa-question-circle field-icon"></i>
+                                            ENQUIRY TYPE <span class="required-star">*</span>
+                                        </label>
+                                        <select class="tech-select" id="enquiry" name="enquiry">
+                                            <option value="">— Select enquiry type —</option>
+                                            <option value="General Enquiry">General Enquiry</option>
+                                            <!--<option value="Technical Support">Technical Support</option>-->
+                                            <option value="Partnership">Partnership / Collaboration</option>
+                                            <!--<option value="Career Opportunity">Career Opportunity</option>-->
+                                            <option value="Feedback">Feedback</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div class="field-feedback" id="feedback-enquiry"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quote Request -->
+                            <div class="mb-3">
+                                <div class="field-group" id="group-quote">
+                                    <label class="field-label mb-2">
+                                        <i class="fas fa-file-invoice-dollar field-icon"></i>
+                                        QUOTE REQUEST <span class="required-star">*</span>
+                                    </label>
+                                    <div class="quote-options" id="quoteOptions">
+                                        <label class="quote-option" id="quoteOpt-yes">
+                                            <input type="radio" name="quote" value="Yes — I need a quote" id="quoteYes">
+                                            <span class="quote-box">
+                                                <i class="fas fa-check-double"></i>
+                                                <span>YES — I need a quote</span>
+                                            </span>
+                                        </label>
+                                        <label class="quote-option" id="quoteOpt-no">
+                                            <input type="radio" name="quote" value="No — General enquiry only" id="quoteNo">
+                                            <span class="quote-box">
+                                                <i class="fas fa-comment-dots"></i>
+                                                <span>NO — General enquiry only</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="field-feedback" id="feedback-quote"></div>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div class="mb-4">
+                                <div class="field-group" id="group-message">
+                                    <label class="field-label" for="message">
+                                        <i class="fas fa-terminal field-icon"></i>
+                                        MESSAGE <span class="required-star">*</span>
+                                    </label>
+                                    <textarea class="tech-input tech-textarea" id="message" name="message"
+                                              rows="5" placeholder="Describe your project, needs or question..." minlength="10" maxlength="500"></textarea>
+                                    <div class="d-flex justify-content-between align-items-center mt-1">
+                                        <div class="field-feedback" id="feedback-message"></div>
+                                        <div class="char-counter mono" id="messageCounter">0 / 500</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="d-grid">
+                                <button type="submit" class="tech-btn" id="submitBtn" disabled>
+                                    <span class="spinner-border spinner-border-sm d-none me-2" id="submitSpinner"></span>
+                                    <i class="fas fa-paper-plane me-2" id="submitIcon"></i>
+                                    <span id="submitText">SEND TRANSMISSION</span>
+                                    <span class="btn-glow"></span>
+                                </button>
+                            </div>
+
+                            <p class="field-note mt-3 text-center">
+                                <i class="fas fa-lock me-1"></i> All fields marked <span class="required-star">*</span> are required. Your data is handled securely.
+                            </p>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="tech-footer">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <a href="https://g-kroon.github.io/GKroon/" class="footer-link">
+                <i class="fas fa-chevron-left me-1"></i> Back to GKroon
+            </a>
+            <span class="mono footer-copy">
+                &copy; <script>document.write(new Date().getFullYear())</script> GKroon (Pty) Ltd
+            </span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() { emailjs.init("4xBx5qkSFzXI53h-i"); })();
+    </script>
+    <script src="form-validation.js"></script>
+    <script src="emailjs-integration.js"></script>
+</body>
+</html>
